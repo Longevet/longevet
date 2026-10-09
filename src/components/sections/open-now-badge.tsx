@@ -52,7 +52,7 @@ export function OpenNowBadge({ className }: { className?: string }) {
       aria-live="polite"
       title={detalle}
       className={cn(
-        "inline-flex h-8 max-w-full items-center gap-2 rounded-full border px-3 text-xs font-semibold text-foreground",
+        "inline-flex min-h-8 max-w-full items-center gap-2 rounded-2xl border px-3 py-1.5 text-xs font-semibold text-foreground",
         modo === "abierto" && "border-brand-emerald/40 bg-brand-emerald/10",
         modo === "cerrado" && "border-destructive/30 bg-destructive/5",
         className,
@@ -66,7 +66,7 @@ export function OpenNowBadge({ className }: { className?: string }) {
           modo === "cerrado" && "bg-destructive/70",
         )}
       />
-      <span className="truncate">{etiqueta}</span>
+      <span>{etiqueta}</span>
       <span className="sr-only">. {detalle}</span>
     </span>
   );

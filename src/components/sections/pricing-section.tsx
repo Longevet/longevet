@@ -276,29 +276,28 @@ export function PricingSection() {
               <TabsList className="grid h-auto w-full max-w-3xl grid-cols-2 gap-1 sm:grid-cols-4 rounded-2xl border border-border/80 bg-muted/70 p-1 backdrop-blur-sm dark:bg-muted/40">
                 <TabsTrigger
                   value="consultas"
-                  className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
+                  className="flex min-h-12 items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-sm font-semibold sm:gap-2"
                 >
                   <Stethoscope className="h-4 w-4 text-brand-teal shrink-0" aria-hidden />
                   <span>Consultas</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="vacunas"
-                  className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
+                  className="flex min-h-12 items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-sm font-semibold sm:gap-2"
                 >
                   <Syringe className="h-4 w-4 text-brand-teal shrink-0" aria-hidden />
                   <span>Vacunas</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="laboratorio"
-                  className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
+                  className="flex min-h-12 items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-sm font-semibold sm:gap-2"
                 >
                   <Microscope className="h-4 w-4 text-brand-teal shrink-0" aria-hidden />
-                  <span className="hidden sm:inline">Laboratorio</span>
-                  <span className="sm:hidden">Lab</span>
+                  <span>Laboratorio</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="otros"
-                  className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
+                  className="flex min-h-12 items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-sm font-semibold sm:gap-2"
                 >
                   <HeartHandshake className="h-4 w-4 text-brand-teal shrink-0" aria-hidden />
                   <span className="hidden sm:inline">Otros</span>
@@ -417,19 +416,19 @@ function PricingCard({
       </CardHeader>
 
       <CardContent className="p-0">
-        <ul className="divide-y sm:hidden">{items.map(item => <li key={item.id} className="p-5"><div className="flex items-start justify-between gap-3"><h4 className="font-bold">{item.name}</h4><span className="shrink-0 font-bold text-brand-teal-dark dark:text-brand-teal">{item.price}</span></div><p className="mt-2 text-sm text-muted-foreground">{item.description}</p></li>)}</ul>
+        <ul className="divide-y sm:hidden">{items.map(item => <li key={item.id} className={`p-5 ${item.highlight ? "bg-brand-teal-soft/40 dark:bg-accent/40" : ""}`}><div className="flex flex-wrap items-start justify-between gap-2"><h4 className="min-w-0 basis-40 grow font-bold">{item.name}</h4><span className="shrink-0 text-lg font-bold text-brand-teal-dark dark:text-brand-teal">{item.price}</span></div>{item.badge && <p className="mt-2 text-xs font-bold text-brand-teal-dark dark:text-brand-teal">{item.badge}</p>}<p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p></li>)}</ul>
         {/* Tabla responsiva usando el componente shadcn Table */}
         <div className="hidden overflow-x-auto sm:block">
           <Table className="min-w-[640px] sm:min-w-full">
             <TableHeader className="bg-brand-navy text-white">
               <TableRow className="border-b border-border/60 hover:bg-transparent">
-                <TableHead className="w-[32%] py-3.5 pl-6 text-center text-base font-bold text-white">
+                <TableHead scope="col" className="w-[32%] py-3.5 pl-6 text-center text-base font-bold text-white">
                   {colHeaderName}
                 </TableHead>
-                <TableHead className="w-[43%] py-3.5 text-center text-base font-bold text-white">
+                <TableHead scope="col" className="w-[43%] py-3.5 text-center text-base font-bold text-white">
                   {colHeaderDetail}
                 </TableHead>
-                <TableHead className="w-[15%] py-3.5 text-center text-base font-bold text-white">
+                <TableHead scope="col" className="w-[15%] py-3.5 text-center text-base font-bold text-white">
                   Precio
                 </TableHead>
 

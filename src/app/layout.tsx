@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { site } from "@/lib/site";
 import { serializeStructuredData } from "@/lib/structured-data";
@@ -45,9 +44,9 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: "/images/asset%20(1).png",
-        width: 1114,
-        height: 1411,
+        url: "/images/social-preview.jpg",
+        width: 1200,
+        height: 630,
         alt: "Medicina geriátrica veterinaria a domicilio con la Dra. Junibeth",
       },
     ],
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} | Medicina Veterinaria Geriátrica`,
     description: site.description,
-    images: ["/images/asset%20(1).png"],
+    images: ["/images/social-preview.jpg"],
   },
   robots: {
     index: true,
@@ -90,7 +89,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "VeterinaryCare",
   "@id": `${site.url}/#servicio`,
-  name: `${site.name} · ${site.legalName}`,
+  name: site.legalName,
   description: site.description,
   url: site.url,
   telephone: site.phone,
@@ -114,7 +113,6 @@ const jsonLd = {
     { "@type": "DiagnosticProcedure", name: "Toma de muestras para laboratorio" },
     { "@type": "MedicalProcedure", name: "Odontología veterinaria" },
   ],
-  medicalSpecialty: ["VeterinaryInternalMedicine", "VeterinaryPainManagement"],
 };
 
 export default function RootLayout({
@@ -132,7 +130,6 @@ export default function RootLayout({
           Saltar al contenido principal
         </a>
         <ThemeProvider>{children}</ThemeProvider>
-        <Toaster />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeStructuredData(jsonLd) }}

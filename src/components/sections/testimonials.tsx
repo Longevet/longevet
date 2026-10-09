@@ -60,6 +60,7 @@ export function Testimonials() {
                   <span aria-hidden className="mb-4 flex size-14 items-center justify-center rounded-2xl bg-brand-gold/15 text-2xl font-extrabold text-brand-gold">{story.pet[0]}</span>
                   <p className="text-xl font-bold">{story.name}</p>
                   <p className="mt-2 text-sm leading-relaxed text-white/70">{story.pet}</p>
+                  <p className="mt-4 text-xs leading-relaxed text-white/70">Historia compartida con autorización de la familia.</p>
                 </figcaption>
                 <div className="min-w-0 self-center">
                   <Quote className="mb-4 size-9 text-brand-gold" aria-hidden />

@@ -1,5 +1,7 @@
 # Revisión previa a publicación
 
+Este documento conserva una revisión anterior. Para los cambios, límites y avisos de dependencias actuales, consulta [la auditoría final](auditoria-final.md).
+
 ## Cambios de esta revisión
 
 - Historias: carrusel manual con deslizamiento, flechas, indicadores y teclado (izquierda, derecha, Inicio, Fin). Respeta movimiento reducido. No avanza mientras alguien lee.

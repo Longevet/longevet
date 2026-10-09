@@ -27,6 +27,8 @@ export default function FaqSection() {
   const [expanded, setExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
+  const [downloadsReady, setDownloadsReady] = useState(false);
+  const [guidesReady, setGuidesReady] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const results = useMemo(() => faqItems.map((item, index) => ({ item, index })).filter(({ item, index }) => {
     if (!expanded) return featured.includes(index);
@@ -62,13 +64,15 @@ export default function FaqSection() {
           <p className="mt-6 text-sm text-muted-foreground">¿Te queda alguna duda? <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-bold text-brand-teal-dark underline underline-offset-4 dark:text-brand-teal">Escríbele a la Dra. Junibeth</a></p>
           
           <div className="mt-8 space-y-4">
-            <details className="rounded-2xl border bg-card p-5">
+            <details onToggle={event => { if (event.currentTarget.open) setDownloadsReady(true); }} className="rounded-2xl border bg-card p-5">
               <summary className="min-h-11 cursor-pointer content-center font-bold">Recursos descargables (PDFs)</summary>
-              <RecursosDescargables />
+              {downloadsReady && <RecursosDescargables />}
+              <noscript><p className="mt-4">Puedes pedir las guías a la doctora por WhatsApp.</p></noscript>
             </details>
-            <details className="rounded-2xl border bg-card p-5">
+            <details onToggle={event => { if (event.currentTarget.open) setGuidesReady(true); }} className="rounded-2xl border bg-card p-5">
               <summary className="min-h-11 cursor-pointer content-center font-bold">Biblioteca senior: guías para cuidar en casa</summary>
-              <Recursos />
+              {guidesReady && <Recursos />}
+              <noscript><p className="mt-4">Puedes consultar estas recomendaciones con la doctora por WhatsApp.</p></noscript>
             </details>
           </div>
         </div>

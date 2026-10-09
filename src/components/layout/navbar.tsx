@@ -73,7 +73,7 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6 xl:px-8">
+      <div className="mx-auto flex min-h-20 max-w-[1440px] items-center justify-between gap-3 px-4 py-3 sm:px-6 xl:px-8">
         <a
           href="#inicio"
           aria-label="LONGEVET — ir al inicio"
@@ -128,7 +128,7 @@ export function Navbar() {
           <SheetContent
             id="menu-movil"
             side="right"
-            className="flex w-[min(20rem,88vw)] flex-col gap-0 p-0"
+            className="flex h-dvh w-[min(20rem,88vw)] flex-col gap-0 overflow-y-auto overscroll-contain p-0"
           >
             <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
             <SheetDescription className="sr-only">
@@ -149,7 +149,7 @@ export function Navbar() {
 
             <nav
               aria-label="Todas las secciones"
-              className="min-h-0 flex-1 overflow-y-auto px-3 py-3"
+              className="min-h-40 flex-1 overflow-y-auto px-3 py-3"
             >
               <ul className="divide-y divide-border">
                 {navLinks.map((link) => (
@@ -158,12 +158,12 @@ export function Navbar() {
                       <a
                         href={link.href}
                         aria-current={active === link.href ? "true" : undefined}
-                        className="flex h-12 items-center justify-between rounded-xl px-3 text-base font-semibold text-foreground transition-colors hover:bg-primary/5 hover:text-primary"
+                        className="flex min-h-12 items-center justify-between gap-3 rounded-xl px-3 py-2 text-base font-semibold text-foreground transition-colors hover:bg-primary/5 hover:text-primary"
                       >
                         {link.label}
                         <ChevronRight
                           aria-hidden="true"
-                          className="size-5 text-muted-foreground"
+                          className="size-5 shrink-0 text-muted-foreground"
                         />
                       </a>
                     </SheetClose>

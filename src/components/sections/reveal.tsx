@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 /** Aparición suave al entrar en viewport, respetando prefers-reduced-motion. */
 export function Reveal({
@@ -15,17 +14,28 @@ export function Reveal({
   className?: string;
   as?: "div" | "section" | "li" | "article";
 }) {
-  const reduce = useReducedMotion();
-  const MotionTag = motion[as];
+  const element = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const target = element.current;
+    if (!target || !window.IntersectionObserver || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        target.dataset.revealed = "true";
+        observer.disconnect();
+      }
+    });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+  const Tag = as;
   return (
-    <MotionTag
+    <Tag
+      ref={node => { element.current = node; }}
+      data-reveal=""
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+      style={{ "--reveal-delay": `${delay}s` } as CSSProperties}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }

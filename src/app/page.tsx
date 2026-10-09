@@ -37,7 +37,7 @@ export default function Home() {
       </main>
       <Footer />
       {/* Espacio para la barra fija móvil (Ley de Fitts) sin tapar el footer */}
-      <div aria-hidden className="h-[calc(76px+env(safe-area-inset-bottom))] md:hidden" />
+      <div aria-hidden className="h-[var(--mobile-actions-height)] md:hidden" />
       <MobileStickyBar />
 
     </div>

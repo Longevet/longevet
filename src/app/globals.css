@@ -56,6 +56,7 @@
 
 :root {
   --radius: 1rem;
+  --mobile-actions-height: calc(76px + env(safe-area-inset-bottom));
   /* ── Paleta oficial LONGEVET (según especificación estratégica) ── */
   --brand-navy: #0d3b66;        /* Azul médico profundo: autoridad clínica */
   --brand-navy-deep: #092a4a;
@@ -83,7 +84,7 @@
   --muted-foreground: #4c5d6b;
   --accent: #e4f2ef;
   --accent-foreground: #175e54;
-  --destructive: #e63946;
+  --destructive: #c42b37;
   --destructive-foreground: #ffffff;
   --border: #e7e1d4;
   --input: #858e95;
@@ -146,7 +147,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
-    scroll-padding-bottom: 6rem;
+    scroll-padding-bottom: calc(var(--mobile-actions-height) + 1rem);
   }
   body {
     @apply bg-background text-foreground;
@@ -156,8 +157,13 @@
     color: var(--muted-foreground);
     opacity: 1;
   }
-  section[id] {
-    scroll-margin-top: 5.5rem;
+  /* El desplazamiento del encabezado se define una sola vez en html. */
+  body {
+    overflow-wrap: anywhere;
+  }
+  /* Deja espacio al teclado y a los controles del formulario en móvil. */
+  body:has(input:focus, textarea:focus, select:focus) [data-mobile-actions] {
+    display: none;
   }
   /* Selección de texto con color de marca (detalle micro-interacción) */
   ::selection {
@@ -206,6 +212,16 @@
 }
 
 @layer utilities {
+  /* El contenido ya es visible en el HTML, incluso sin JavaScript. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-revealed="true"] {
+      animation: reveal-gently .35s ease-out var(--reveal-delay, 0s);
+    }
+    @keyframes reveal-gently {
+      from { transform: translateY(8px); }
+      to { transform: translateY(0); }
+    }
+  }
   /* Scrollbar refinada para listas largas */
   .scrollbar-fina {
     scrollbar-width: thin;

@@ -63,8 +63,9 @@ export function Hero() {
               alt="Dra. Junibeth González Ramírez acompañando a un paciente"
               width={1114}
               height={1411}
-              preload
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="eager"
+              fetchPriority="high"
+              sizes="(min-width: 1280px) 600px, (min-width: 1024px) calc((100vw - 80px) / 2), calc(100vw - 32px)"
               className="aspect-[4/5] max-h-[580px] w-full object-cover object-top"
             />
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-brand-navy/25 via-transparent to-transparent" />

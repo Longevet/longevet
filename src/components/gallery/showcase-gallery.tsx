@@ -65,6 +65,7 @@ export default function ShowcaseGallery() {
                   <p className="text-[11px] font-bold uppercase tracking-wider text-brand-teal-dark dark:text-brand-teal">{slide.tag}</p>
                   <h3 className="mt-3 text-xl font-bold tracking-tight sm:text-2xl">{title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{slide.description}</p>
+                  <p className="mt-4 text-xs leading-relaxed text-muted-foreground">Historia compartida con autorización de la familia.</p>
                   <span aria-hidden className="mt-6 block h-0.5 w-10 rounded-full bg-brand-teal" />
                 </div>
               </article>

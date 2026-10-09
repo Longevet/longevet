@@ -10,10 +10,10 @@ const nextConfig: NextConfig = {
       "default-src 'self'",
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://www.dailymotion.com https://*.dmcdn.net",
+      "img-src 'self' data: blob: https://www.dailymotion.com https://*.dmcdn.net https://i.ytimg.com",
       "font-src 'self'",
       `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
-      "frame-src https://www.dailymotion.com",
+      "frame-src https://www.dailymotion.com https://www.youtube-nocookie.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -30,9 +30,11 @@ const nextConfig: NextConfig = {
   },
   /* Configuración de optimización de imágenes para alta velocidad móvil (3G/4G) */
   images: {
+    localPatterns: [{ pathname: "/images/**", search: "" }],
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    qualities: [75],
+    deviceSizes: [320, 384, 480, 640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 días
   },
   reactStrictMode: false,

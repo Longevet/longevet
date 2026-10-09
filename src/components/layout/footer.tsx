@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   Clock,
@@ -81,7 +79,7 @@ export function Footer() {
                     width={160}
                     height={160}
                     className="size-full rounded-full object-cover"
-                    priority
+                    sizes="(min-width: 640px) 112px, 96px"
                   />
                 </div>
                 <div>
@@ -150,13 +148,13 @@ export function Footer() {
               <ul className="mt-2 space-y-1.5 text-xs text-white/85">
                 <li className="flex items-center gap-2">
                   <Phone className="size-3.5 text-brand-gold shrink-0" aria-hidden />
-                  <a href={site.phoneHref} className="hover:underline hover:text-white">
+                  <a href={site.phoneHref} className="inline-flex min-h-11 items-center hover:underline hover:text-white">
                     {site.phone}
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <WhatsappIcon className="size-3.5 text-brand-emerald shrink-0" />
-                  <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">
+                  <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center hover:underline hover:text-white">
                     WhatsApp
                   </a>
                 </li>
@@ -177,7 +175,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${label} (se abre en una pestaña nueva)`}
-                      className="inline-flex size-9 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-brand-navy focus-visible:outline-white"
+                      className="inline-flex size-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-brand-navy focus-visible:outline-white"
                     >
                       <Icon aria-hidden="true" className="size-4" />
                     </a>
@@ -203,7 +201,7 @@ export function Footer() {
             <li>
               <a
                 href="/privacidad"
-                className="underline-offset-4 transition-colors hover:text-white hover:underline cursor-pointer"
+                className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-white hover:underline cursor-pointer"
               >
                 Política de privacidad
               </a>
@@ -211,7 +209,7 @@ export function Footer() {
             <li>
               <a
                 href="/terminos"
-                className="underline-offset-4 transition-colors hover:text-white hover:underline cursor-pointer"
+                className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-white hover:underline cursor-pointer"
               >
                 Términos de atención
               </a>

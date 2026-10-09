@@ -1,6 +1,7 @@
 import { List } from "lucide-react";
 
 import { site } from "@/lib/site";
+import { MobileActionHeight } from "@/components/layout/mobile-action-height";
 
 /**
  * Glifo oficial de WhatsApp (lucide-react no incluye iconografía de marcas).
@@ -23,7 +24,8 @@ export function WhatsappIcon({ className }: { className?: string }) {
 /** Acciones móviles con una sola vía destacada para agendar. */
 export function MobileStickyBar() {
   return (
-    <nav aria-label="Acciones rápidas" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 backdrop-blur-lg md:hidden">
+    <nav data-mobile-actions aria-label="Acciones rápidas" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 backdrop-blur-lg md:hidden">
+      <MobileActionHeight />
       <div className="mx-auto flex items-center gap-2 px-3 pt-2 pb-[max(.5rem,env(safe-area-inset-bottom))]">
         <a href="#tarifas" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl px-3 text-sm font-semibold text-foreground"><List className="size-4" aria-hidden />Tarifas</a>
         <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 min-w-0 flex-1 items-center justify-center gap-2 rounded-full bg-brand-teal-dark px-3 py-2 text-center text-sm font-bold text-white"><WhatsappIcon className="size-5 shrink-0" />Agendar por WhatsApp</a>

@@ -15,7 +15,7 @@ export function LogoMark({ className }: { className?: string }) {
         width={64}
         height={88}
         className="h-full w-auto object-contain"
-        priority
+        loading="eager"
       />
     </span>
   );
@@ -40,7 +40,7 @@ export function Logo({
           width={64}
           height={88}
           className="h-full w-auto object-contain"
-          priority
+          loading="eager"
         />
       </span>
       <span className="flex min-w-0 flex-col leading-tight">
