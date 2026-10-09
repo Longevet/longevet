@@ -8,6 +8,7 @@ import {
   Sparkles,
   Stethoscope,
   Syringe,
+  HeartHandshake,
 } from "lucide-react";
 import { Reveal } from "@/components/sections/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -158,10 +159,17 @@ const laboratorioData: ServicePriceItem[] = [
   },
   {
     id: "lab-urianalisis",
-    name: "Urianálisis Completo",
+    name: "Urianálisis Básico",
     price: "₡15.000",
     description:
       "Análisis físico-químico de orina y evaluación microscópica de sedimento (detección de cristales, bacterias y daño renal).",
+  },
+  {
+    id: "lab-urianalisis-upc",
+    name: "Urianálisis con UPC",
+    price: "₡32.000",
+    description:
+      "Urianálisis completo más la relación Proteína/Creatinina en orina (UPC), fundamental para el diagnóstico temprano y monitoreo de enfermedad renal.",
   },
   {
     id: "lab-coprologico",
@@ -180,16 +188,40 @@ const laboratorioData: ServicePriceItem[] = [
   {
     id: "lab-snap-fiv-felv",
     name: "Test Rápido Felino (FIV / FeLV)",
-    price: "₡38.000",
+    price: "₡25.000",
     description:
       "Descarte serológico en sangre de Virus de Inmunodeficiencia Felina (SIDA) y Leucemia Viral Felina.",
   },
   {
     id: "lab-citologia",
     name: "Citología Básica y Frotis de Piel",
-    price: "₡14.000",
+    price: "₡30.000",
     description:
       "Toma de muestra cutánea o auricular para evaluación de levaduras, bacterias y células inflamatorias.",
+  },
+];
+
+const otrosServiciosData: ServicePriceItem[] = [
+  {
+    id: "eutanasia",
+    name: "Eutanasia Humanitaria",
+    price: "₡60.000+",
+    description:
+      "Procedimiento compasivo, ético y sin dolor en la tranquilidad del hogar. Se cotiza a partir de ₡60.000 según el peso del paciente.",
+  },
+  {
+    id: "asesoria-colegas-virtual",
+    name: "Asesoría a Colegas (Virtual)",
+    price: "₡15.000",
+    description:
+      "Soporte y segunda opinión clínica para colegas veterinarios mediante plataforma virtual.",
+  },
+  {
+    id: "asesoria-colegas-presencial",
+    name: "Asesoría a Colegas (Presencial)",
+    price: "₡25.000",
+    description:
+      "Acompañamiento, soporte clínico o segunda opinión de manera presencial.",
   },
 ];
 
@@ -241,7 +273,7 @@ export function PricingSection() {
           >
             {/* Lista de pestañas accesible y responsiva */}
             <div className="flex justify-center">
-              <TabsList className="grid h-auto w-full max-w-2xl grid-cols-3 rounded-2xl border border-border/80 bg-muted/70 p-1 backdrop-blur-sm dark:bg-muted/40">
+              <TabsList className="grid h-auto w-full max-w-3xl grid-cols-2 gap-1 sm:grid-cols-4 rounded-2xl border border-border/80 bg-muted/70 p-1 backdrop-blur-sm dark:bg-muted/40">
                 <TabsTrigger
                   value="consultas"
                   className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
@@ -261,7 +293,16 @@ export function PricingSection() {
                   className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
                 >
                   <Microscope className="h-4 w-4 text-brand-teal shrink-0" aria-hidden />
-                  <span>Laboratorio</span>
+                  <span className="hidden sm:inline">Laboratorio</span>
+                  <span className="sm:hidden">Lab</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="otros"
+                  className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2 text-xs font-semibold sm:gap-2 sm:text-sm"
+                >
+                  <HeartHandshake className="h-4 w-4 text-brand-teal shrink-0" aria-hidden />
+                  <span className="hidden sm:inline">Otros</span>
+                  <span className="sm:hidden">Otros</span>
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -299,6 +340,18 @@ export function PricingSection() {
                 items={laboratorioData}
                 colHeaderName="Examen de Diagnóstico"
                 colHeaderDetail="Aplicación Clínica y Componentes"
+              />
+            </TabsContent>
+
+            {/* Pestaña 4: Otros Servicios */}
+            <TabsContent value="otros" className="mt-8 focus-visible:outline-none">
+              <PricingCard
+                title="Otros Servicios Especializados"
+                subtitle="Procedimientos y asesorías profesionales adaptadas a casos particulares."
+                icon={<HeartHandshake className="h-5 w-5 text-brand-teal-dark dark:text-brand-teal-soft" />}
+                items={otrosServiciosData}
+                colHeaderName="Servicio"
+                colHeaderDetail="Descripción"
               />
             </TabsContent>
           </Tabs>

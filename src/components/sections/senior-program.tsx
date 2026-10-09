@@ -2,6 +2,7 @@ import { CheckCircle2, CalendarCheck } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/site";
 
 export const seniorPlans = [
+  { name: "Senior Crónico", description: "Atención de paciente renal que requiere monitoreo estricto de su función y dieta.", price: 90000, regular: 135000, services: ["Consulta médica", "Urianálisis con UPC", "Químicas sanguíneas y hemograma", "Toma de presión arterial", "Valoración de dieta"], note: "Control integral para ajustar tratamiento y proteger su función renal.", featured: false },
   { name: "Senior Integral", description: "Mascotas que necesitan complementar su valoración con estudios de laboratorio indicados por la doctora.", price: 95000, regular: 110000, services: ["Consulta geriátrica integral", "Hemograma completo", "Perfil bioquímico geriátrico"], note: "Estudios según la indicación de la doctora. Entrega de resultados coordinada.", featured: false },
   { name: "Senior Esencial", description: "Mascotas que comienzan su cuidado senior y necesitan una valoración con control de evolución.", price: 50000, regular: 60000, services: ["Consulta geriátrica integral", "Consulta de seguimiento"], note: "Control dentro de los 15 días posteriores a la primera consulta.", featured: true },
   { name: "Senior Acompañamiento", description: "Familias que buscan seguimiento presencial y un espacio adicional de consulta virtual.", price: 65000, regular: 75000, services: ["Consulta geriátrica integral", "Consulta de seguimiento", "Seguimiento virtual"], note: "Control presencial dentro de los 15 días posteriores a la primera consulta.", featured: false },
@@ -16,7 +17,7 @@ export function SeniorProgram() {
           <h2 id="titulo-planes" className="mt-3 text-3xl font-extrabold sm:text-4xl">Planes para su edad dorada</h2>
           <p className="mt-4 text-muted-foreground">Elige un conjunto de atenciones pensado para tu mascota. Un precio por paquete, sin mensualidades ni cobros automáticos.</p>
         </div>
-        <div className="mt-14 grid gap-7 lg:grid-cols-3">
+        <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-4">
           {seniorPlans.map(plan => (
             <article key={plan.name} className={`relative flex flex-col rounded-3xl border p-7 ${plan.featured ? "border-brand-teal bg-[#0d3b66] text-white shadow-xl ring-1 ring-brand-teal lg:-translate-y-3" : "border-border bg-card text-foreground"}`}>
               {plan.featured && <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand-gold px-4 py-1 text-xs font-extrabold text-[#0d3b66]">EL MÁS ELEGIDO</span>}
