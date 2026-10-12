@@ -98,7 +98,7 @@ export function StatsStrip() {
                       <Instagram className="size-6 text-pink-400" aria-hidden />
                     </span>
                     <span className="rounded-full bg-pink-500/20 px-2.5 py-0.5 text-[11px] font-bold text-pink-300">
-                      @paquito_zagua
+                      @longevetcr
                     </span>
                   </div>
                   <h3 className="mt-4 text-base font-bold text-white group-hover:text-pink-300 transition-colors">

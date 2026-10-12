@@ -18,8 +18,7 @@ export const site = {
   ],
   social: {
     facebook: "https://facebook.com/longivet.cr",
-    instagram: "https://www.instagram.com/paquito_zagua/",
-    tiktok: "https://tiktok.com/@longivet.cr",
+    instagram: "https://www.instagram.com/longevetcr/",
   },
 } as const;
 export const navLinks = [

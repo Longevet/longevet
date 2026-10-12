@@ -3,7 +3,6 @@ import {
   Clock,
   Coffee,
   Instagram,
-  Music2,
   Phone,
 } from "lucide-react";
 
@@ -30,7 +29,6 @@ const distintivos = ["Colegiada #002640", "Diplomado en Geriatría", "+6 años d
 
 const redesSociales = [
   { label: "Instagram de LONGEVET", href: site.social.instagram, Icon: Instagram },
-  { label: "TikTok de LONGEVET", href: site.social.tiktok, Icon: Music2 },
 ] as const;
 
 const enlacePie =
