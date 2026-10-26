@@ -1,7 +1,6 @@
 import Image from "next/image";
 import {
   Clock,
-  Coffee,
   Instagram,
   Phone,
 } from "lucide-react";
@@ -214,23 +213,6 @@ export function Footer() {
             </li>
           </ul>
 
-          {/* Crédito: Hecho con café por Ing. Enrique Cascante */}
-          <p className="inline-flex items-center gap-1.5 text-xs text-white/80">
-            Hecho con
-            <Coffee
-              aria-hidden="true"
-              className="size-4 text-amber-400 shrink-0"
-            />
-            por{" "}
-            <a
-              href="https://www.linkedin.com/in/enrique-cascante/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-white transition-colors hover:text-brand-gold hover:underline underline-offset-4"
-            >
-              Ing. Enrique Cascante
-            </a>
-          </p>
         </div>
       </div>
     </footer>
